@@ -93,7 +93,6 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-    // throw new Error('Sync Dummy');
     if (!req.session.user) {
         return next();
     }
@@ -119,8 +118,6 @@ app.get('/500', errorController.get500);
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
-    // res.status(error.httpStatusCode).render(....)
-    // res.redirect('/500');
     console.log(error);
     res.status(500).render('500', {
         pageTitle: 'Error!',
