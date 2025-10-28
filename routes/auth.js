@@ -1,12 +1,8 @@
 const express = require('express');
-/** note we are importing from the base package */
 const { check, body } = require('express-validator');
-
 const authController = require('../controllers/auth');
 const User = require('../models/user');
-
 const router = express.Router();
-
 router.get('/login', authController.getLogin);
 
 router.get('/signup', authController.getSignup);
@@ -33,10 +29,6 @@ router.post(
             .isEmail()
             .withMessage('Please enter a valid email.')
             .custom((value, { req }) => {
-                // if (value === 'test@test.com') {
-                //     throw new Error('This email address is forbidden.');
-                // }
-                // return true;
                 return User.findOne({ email: value }).then((userDoc) => {
                     if (userDoc) {
                         return Promise.reject(
