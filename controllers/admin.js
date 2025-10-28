@@ -60,7 +60,6 @@ exports.postAddProduct = (req, res, next) => {
     const imageUrl = image.path.replace(/\\/g, '/');
 
     const product = new Product({
-        // _id: new mongoose.Types.ObjectId('6606e7bd39bee6b6fd582558'),
         title: title,
         price: price,
         description: description,
@@ -70,26 +69,10 @@ exports.postAddProduct = (req, res, next) => {
     product
         .save()
         .then((result) => {
-            // console.log(result);
             console.log('Created Product');
             res.redirect('/admin/products');
         })
         .catch((err) => {
-            // return res.status(500).render('admin/edit-product', {
-            //     pageTitle: 'Add Product',
-            //     path: '/admin/add-product',
-            //     editing: false,
-            //     hasError: true,
-            //     product: {
-            //         title: title,
-            //         imageUrl: imageUrl,
-            //         price: price,
-            //         description: description,
-            //     },
-            //     errorMessage: 'Database operation failed, please try again.',
-            //     validationErrors: [],
-            // });
-            // res.redirect('/500');
             const error = new Error(err);
             error.httpStatusCode = 500;
             return next(error);
@@ -177,10 +160,7 @@ exports.postEditProduct = (req, res, next) => {
 
 exports.getProducts = (req, res, next) => {
     Product.find({ userId: req.user._id })
-        // .select('title price -_id')
-        // .populate('userId', 'name')
         .then((products) => {
-            // console.log(products);
             res.render('admin/products', {
                 prods: products,
                 pageTitle: 'Admin Products',
@@ -202,7 +182,6 @@ exports.deleteProduct = (req, res, next) => {
                 return next(new Error('Product not found.'));
             }
             fileHelper.deleteFile(product.imageUrl);
-            /** findByIdAndRemove -- REMOVED!! */
             return Product.deleteOne({ _id: prodId, userId: req.user._id });
         })
         .then(() => {
