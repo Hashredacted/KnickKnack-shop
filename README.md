@@ -188,6 +188,6 @@ Then open:
 ## 👨‍💻 Author  
 
 **Mohammad Afnan Mirza**  
-📧 *[Your Email Here]*  
+📧 *mohammadafnanmirza@gmail.com*  
 🎓 Department of Computer Science — MCA / CAMS-3P01  
 🗓️ *October 2025*  
