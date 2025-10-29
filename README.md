@@ -20,9 +20,9 @@ Deployed on **Render** — click below to explore the live application:
 
 | Screenshot | Description |
 |-------------|--------------|
-| ![Product Display](./images/a.jpeg) | **Product Showcase:** Highlights featured KnickKnacks and categories |
-| ![Product Details](./images/c.jpg) | **Product Details Page:** Displays description, price, and Add-to-Cart options |
-| ![Dashboard](./images/img.webp) | **Admin Dashboard:** Product management and order tracking interface |
+| ![Product Display](./images/nls.png) | **Product Showcase:** Highlights featured KnickKnacks and categories |
+| ![Product Details](./images/b.png) | **Product Details Page:** Displays description, price, and Add-to-Cart options |
+| ![Admin Products](./images/rap.png) | **Admin Dashboard:** Product management and order tracking interface |
 
 ---
 
